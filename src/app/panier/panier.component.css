@@ -1,0 +1,168 @@
+
+
+.netflix-padding-left{
+    padding-left : 57px;
+}
+
+
+
+
+
+.netflix-navbar{
+   /*  background-color: #0C0C0C !important; */
+   position: fixed;
+   margin-bottom: 10%;
+   width: 100vw;
+   z-index: 1000;
+    transition: background 0.2s linear;
+}
+
+
+.netflix-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.navbar-brand img{
+    width: 100px;
+}
+
+.netflix-dropdown-box{
+display: none;
+}
+
+.netflix-dropdown{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.netflix-nav{
+    align-items: center;
+}
+
+
+.netflix-nav button{
+   background-color: transparent;
+   color: rgba(255,255, 255, 0.616);
+   border: none;
+   font-size: 13px
+}
+
+
+.netflix-nav button:hover{
+color: #fff;
+}
+
+i{
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.netflix-profile{
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius:4px ;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.global {
+    height: 100vh;
+}
+
+  
+  .panier-container {
+    padding-top: 80px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+    background-color: rgba(0, 0, 0, 0.850);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    min-height: 100%; /* Assurez-vous qu'il occupe l'espace nécessaire */
+  }
+  
+
+  
+
+  .card{
+    margin:50%;
+    width: 250px;
+    height: 10%;
+    background-color: #141414;
+    color: white;
+    border-radius: 4px;
+    transition: 0.2s linear;
+    margin: 3px;
+    position: relative;
+}
+  
+  .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #e50914;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .bi-trash {
+    color: #e50914;
+    cursor: pointer;
+  }
+
+/*
+  .card{
+    width: 250px;
+    background-color: #141414;
+    border-radius: 4px;
+    transition: 0.2s linear;
+    margin: 3px;
+    position: relative;
+}
+  */
+  .order-card {
+    width: 250px;
+    height: 250px;
+    background-color: #292929;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: fixed;
+    margin-left: 70%;    
+  }
+  
+  .btn-success {
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+

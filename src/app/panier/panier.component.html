@@ -1,0 +1,96 @@
+<!-- navbar -->
+
+<div class="global">
+
+
+  <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
+    <div class="container-fluid">
+      <div class="netflix-row">
+        <section class="left d-flex align-items-center">
+          <a class="navbar-brand" href="#">
+            <img src="/assets/images/logo.png" alt="">
+          </a>
+          <!-- dropdown-->
+
+          <div class="netflix-dropdown-box dropdown">
+            <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Browse
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Home</a></li>
+              <li><a class="dropdown-item" href="#">Tv shows</a></li>
+              <li><a class="dropdown-item" href="#"> Movies</a></li>
+            </ul>
+          </div>
+
+          <div class="netflix-nav">
+            <section>
+              <button> Home </button>
+              <button> Tvshows </button>
+              <button> Movies </button>
+              <button> News & populae </button>
+              <button> My list </button>
+            </section>
+
+
+          </div>
+        </section>
+        <section class="right d-flex align-items-center">
+
+          <div class="cart d-flex">
+            <i class="bi bi-cart" id="count">{{ count }}</i>
+          </div>
+          <i class="bi bi-search"></i>
+          <i class="bi bi-bell-fill"></i>
+
+
+
+          <section class="netflix-profile">
+
+          </section>
+        </section>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Inclure la barre de navigation ici -->
+
+  <!-- Contenu de la page de panier -->
+  <div class="panier-container">
+
+
+
+
+    <!-- Carte pour le total et la commande -->
+
+
+    <div class="card" *ngFor="let film of panier">
+      <img [src]="film.url_photo" class="card-img-top" alt="Image du film">
+      <div class="card-body">
+        <h5 class="card-title">{{ film.titre }}</h5>
+        <p class="card-text">{{ film.description }}</p>
+        <button class="btn btn-primary">Acheter</button>
+        <i class="bi bi-trash" (click)="removeFromPanier(film)"></i>
+      </div>
+    </div>
+  <!-- Colonne pour les films -->
+
+
+
+  <div class="order-card">
+    <p>Nombre de films: {{ panier.length }}</p>
+    <button class="btn btn-success">Commander</button>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>

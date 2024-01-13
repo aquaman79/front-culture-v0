@@ -220,3 +220,8 @@ i{
     top: 10px !important;
     position: absolute !important;
 }
+
+.cart  p {
+    display: flex ;
+    color: red;
+}
