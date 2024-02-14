@@ -1,96 +1,117 @@
- <!-- navbar -->
-   <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
-    <div class="container-fluid">
-        <div class="netflix-row">
-            <section class="left d-flex align-items-center">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/images/logo.png" alt="">
-                </a>
-                <!-- dropdown-->
+<div class="body position-relative">
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
+  <div class="container-fluid">
+    <div class="netflix-row">
+      <section class="left d-flex align-items-center">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/images/logo.png" alt="">
+        </a>
+        <!-- dropdown-->
 
-<div class="netflix-dropdown-box dropdown">
-    <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Browse
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Home</a></li>
-      <li><a class="dropdown-item" href="#">Tv shows</a></li>
-      <li><a class="dropdown-item" href="#"> Movies</a></li>
-    </ul>
-  </div>
+        <div class="netflix-dropdown-box dropdown">
+          <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Browse
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Home</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Tv shows</a></li>
+            <li><a class="dropdown-item" href="#"> Movies</a></li> -->
+            <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
 
-  <div class="netflix-nav">
-    <section>
-        <button> Home </button>
-        <button> Tvshows </button>
-        <button> Movies </button>
-        <button> News & populae </button>
-        <button> My list </button>
-    </section>
-  
-
-  </div>
-            </section>
-            <section class="right d-flex align-items-center">
-                
-            <div class="cart d-flex" >
-              <a routerLink="/panier">
-                <i class="bi bi-cart" id="count">{{ count }}</i>
-              </a>
-              </div>
-                <i class="bi bi-search"></i>
-                <i class="bi bi-bell-fill"></i>
-
-
-
-                <section class="netflix-profile">
-    
-                </section>
-            </section>
-
+          </ul>
         </div>
+
+        <div class="netflix-nav">
+          <section >
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" >  Home </button>
+            <!-- <button> Tvshows </button>
+            <button> Movies </button>
+            <button> News & populae </button> -->
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;"> My list </button>
+          </section>
+        </div>
+      </section>
+      <section class="right d-flex align-items-center">
+
+        <div class="cart d-flex" style="color: #9e0c39; font-weight: bold;font-size: larger;">
+          <a routerLink="/panier">
+            <i class="bi bi-cart" id="count">{{ count }}</i>
+          </a>
+        </div>
+        <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i>
+        <!-- <i class="bi bi-bell-fill"></i> -->
+
+
+
+        <!-- <section class="netflix-profile">
+
+        </section> -->
+      </section>
+
     </div>
-  </nav>
-   <!-- navrab end -->
+  </div>
+</nav>
+<!-- navrab end -->
 
 <!-- video contents -->
 <div class="">
   <section class="netflix-home-video">
-     <div class="top"></div>
-     <div class="bottom"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
 
-     <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
-        <source src="/assets/video/video.mp4" type="video/mp4">
-    </video>
-     <div class="content">
-         <section class="left">
-             <img src="/assets/images/image2.webp" alt="">
-         
-             <div class="d-flex mt-2">
-               <button class="btn btn-light m-2" > <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now </button>
-               <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More Info</button>
-             </div>
-         </section>
-        
-     </div>
-   </section>
-  
+    <!-- <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+      <source src="/assets/video/video.mp4" type="video/mp4">
+    </video> -->
+     <img src="/assets/images/welcome-enjoy.webp" alt="" style="  display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;"> 
+
+    <div class="content">
+      <!-- <section class="left"> -->
+        <!-- <img src="/assets/images/image2.webp" alt=""> -->
+
+        <!-- <div class="d-flex" style="margin-top: 190%"> -->
+          <!-- <button class="btn btn-light m-2"> <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now
+          </button> -->
+          <!-- <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More
+            Info</button>
+        </div> -->
+      <!-- </section> -->
+
+    </div>
+  </section>
+
 </div>
 <!-- video contents end -->
 
 
-   <!-- sliders -->
-   <div class="slider-box slider">
-    <div class="container-fluid">
-        <!-- Section Trending -->
-        <section class="d-flex justify-content-between margin-right">
-            <p class="text-white"><b>Trending</b></p>
-        </section>
+<div class="slider-box slider">
+  <div class="container-fluid">
+    <!-- Section Trending -->
+    <section class="d-flex justify-content-between">
+      <p class="text-white"><b>Trending</b></p>
+    </section>
 
-        <!-- Ligne de cartes -->
-        <section class="d-flex justify-content-center flex-wrap">
-            <!-- Boucle sur les films -->
-            <div class="card" *ngFor="let film of films">
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <!-- Indicateurs dynamiques basés sur le nombre de groupes de films -->
+      <ol class="carousel-indicators">
+        <li *ngFor="let group of groupedFilms; let i = index" 
+            data-bs-target="#carouselExampleIndicators" 
+            [attr.data-bs-slide-to]="i" 
+            [class]="i === 0 ? 'active' : ''"></li>
+      </ol>
+    
+      <!-- Contenu du Carrousel : Groupes de films -->
+      <div class="carousel-inner">
+        <div *ngFor="let group of groupedFilms; let i = index" class="carousel-item" [class.active]="i === 0">
+          <div class="d-flex flex-wrap">
+            <!-- <div *ngFor="let film of group" class="card m-2" style="width: 18rem;" (click)="selectFilm(film)"> -->
+              <div *ngFor="let film of group" class="card m-2" style="width: 18rem;">
+
               <img [src]="film.url_photo" class="card-img-top" alt="Image du film">
               <div class="card-body">
                 <section class="d-flex justify-content-between">
@@ -100,7 +121,8 @@
                     <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
                   </div>
                   <div>
-                    <i class="bi bi-arrow-down-circle card-icon"></i>
+                    <!-- <i class="bi bi-arrow-down-circle card-icon"></i> -->
+                    <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
                   </div>
                 </section>
                 <section class="d-flex align-items-center justify-content-between">
@@ -111,13 +133,187 @@
                 <span class="netflix-card-text text-white">{{ film.genres.join(' • ') }}</span>
               </div>
             </div>
-          </section>
-          
-
-        <!-- Ajoutez plus de lignes de cartes si nécessaire, en suivant le même modèle -->
+          </div>
+        </div>
+      </div>
+    
+      <!-- Contrôles Précédent & Suivant -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+
+
+
+    <div class="container-fluid">
+      <!-- Section pour chaque Genre de Films -->
+      <div *ngFor="let genre of genres" class="mt-4">
+        <section class="d-flex justify-content-between">
+          <p class="text-white"><b>{{ genre }}</b></p>
+        </section>
+    
+        <div id="{{ genre }}Carousel" class="carousel slide">
+          <!-- Indicateurs dynamiques pour chaque genre -->
+          <ol class="carousel-indicators">
+            <li *ngFor="let film of genresGroupedFilms[genre]; let i = index" 
+        attr.data-bs-target="#{{ genre }}Carousel" 
+        attr.data-bs-slide-to="{{i}}" 
+        [class]="i === 0 ? 'active' : ''"></li>
+          </ol>
+    
+          <!-- Contenu du Carrousel pour chaque genre -->
+          <div class="carousel-inner">
+            <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="carousel-item" [class.active]="i === 0">
+              <div class="d-flex flex-wrap">
+                <div class="card m-2" style="width: 18rem;">
+                  <img [src]="film.url_photo" class="card-img-top" alt="Image du film">
+                  <div class="card-body">
+                    <section class="d-flex justify-content-between">
+                      <div>
+                        <i class="bi bi-play-circle-fill card-icon"></i>
+                        <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
+                        <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
+                      </div>
+                      <div>
+                        <!-- <i class="bi bi-arrow-down-circle card-icon"></i> -->
+                        <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
+                      </div>
+                    </section>
+                    <section class="d-flex align-items-center justify-content-between">
+                      <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
+                      <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
+                      <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
+                    </section>
+                    <span class="netflix-card-text text-white">{{ film.genres.join(' • ') }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Contrôles Précédent & Suivant pour chaque genre -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+    
+
+    
+    <!-- <div class="container-fluid">
+      <div class="detail-card  mx-auto " *ngIf="selectedFilm">
+        <div class="card  position-relative  " style="width: 18rem;">
+          <img class="card-img-top " src="..." alt="Card image cap">
+          <div class="card-body text-white"> -->
+              <!-- Affiche les détails du film sélectionné -->
+              <!-- <h3>{{ selectedFilm.titre }}</h3>
+              <p>{{ selectedFilm.description }}</p> -->
+              <!-- Autres détails -->
+          <!-- </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <!-- Conteneur global fixe et centré -->
+<div class="fixed-container detail-card  mx-auto" *ngIf="selectedFilm">
+  <div class="row">
+    <!-- Carte de détails du film -->
+    <div class="col-4">
+      <div class="card ">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body text-white">
+          <h3>{{ selectedFilm.titre }}</h3>
+          <p>{{ selectedFilm.description }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section d'informations -->
+    <div class="col-8">
+      <div class="info">
+        <!-- Placez ici les informations supplémentaires que vous souhaitez afficher -->
+        <h2>Commentaire</h2>
+      </div>
+    </div>
+  </div>
 </div>
 
-        
 
-  <!-- sliders-end -->
+
+<div class="fixed-container detail-card mx-auto" *ngIf="selectedFilm">
+  <button type="button" style="background-color: red;" class="btn-close position-absolute top-0 end-0" aria-label="Close" (click)="closeDetails()"></button>
+  <div class="row">
+    <!-- Carte de détails du film -->
+    <div class="col-lg-4">
+      <div class="card">
+        <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap">
+        <div class="card-body text-white">
+          <h3>{{ selectedFilm.titre }}</h3>
+          <p>{{ selectedFilm.description }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section d'informations et de commentaires -->
+    <div class="col-lg-8">
+      <div class="info">
+        <h2>Commentaires</h2>
+        <!-- Liste des commentaires -->
+        <div class="comments-list">
+          <div class="comment" *ngFor="let comment of selectedFilm.comments">
+            <div class="d-flex">
+              <div class="comment-avatar">
+                <img src="path_to_avatar_image" alt="avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5 class="mt-0">{{ comment.auteur }}</h5>
+                <p>{{ comment.contenu }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Formulaire pour ajouter un commentaire -->
+         <div class="submit-comment mt-4">
+          <h4>Ajouter un commentaire</h4>
+          <form>
+            <div class="mb-3">
+              <label for="commentAuthor" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="commentAuthor" placeholder="Votre nom">
+            </div>
+            <div class="mb-3">
+              <label for="commentContent" class="form-label">Commentaire</label>
+              <textarea class="form-control" id="commentContent" rows="3" placeholder="Votre commentaire"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+
+
+    <!-- Carousel Bootstrap avec des indicateurs et des contrôles -->
+  
+<!-- sliders-end -->
+
+
+

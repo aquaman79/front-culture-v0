@@ -15,4 +15,9 @@ export class FilmService {
   getFilms(): Observable<Film[]> {
     return this.http.get<Film[]>(this.apiUrl);
   }
+
+   // Méthode pour ajouter une liste de films
+   addFilms(films: Film[]): Observable<any> {
+    return this.http.post(this.apiUrl, films);
+  }
 }

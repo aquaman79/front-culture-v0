@@ -1,0 +1,139 @@
+<div class="global " style= " background-color: rgba(0, 0, 0, 0.850);height: 100vh ;">
+
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
+    <div class="container-fluid">
+        <div class="netflix-row">
+            <section class="left d-flex align-items-center">
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/images/logo.png" alt="">
+                </a>
+                <!-- dropdown-->
+   
+   <div class="netflix-dropdown-box dropdown">
+    <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Browse
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Home</a></li>
+      <li><a class="dropdown-item" href="#">Tv shows</a></li>
+      <li><a class="dropdown-item" href="#"> Movies</a></li>
+    </ul>
+   </div>
+   
+   <div class="netflix-nav">
+    <section>
+        <button> Home</button>
+        <button> Tvshows </button>
+        <button> Movies </button>
+        <button> News & populae </button>
+        <button> My list </button>
+    </section>
+   
+   
+   </div>
+            </section>
+            <section class="right d-flex align-items-center">
+                
+            <div class="cart d-flex" >
+              <a routerLink="/panier">
+              </a>
+              </div>
+                <i class="bi bi-search"></i>
+                <i class="bi bi-bell-fill"></i>
+   
+   
+   
+                <section class="netflix-profile">
+    
+                </section>
+            </section>
+   
+        </div>
+    </div>
+   </nav>
+   <!-- navrab end -->
+
+ <!-- admin-ajoute-film.component.html -->
+<div class="interieur">
+    <div class="d-flex justify-content-center">
+        <div class="mt-1 mb-2 p-3  text-white rounded text-center w-25" style="background-color: #4d6160;">
+            <h1>Ajouter des Films</h1>
+        </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col text-end">
+        <button class="btn btn-sm btn-success" (click)="addFilm()">Ajouter un Film</button>
+      </div>
+    </div>
+
+    <form [formGroup]="filmForm">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="text-uppercase table-dark">
+            <!-- <th>ID</th> -->
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Date de Sortie</th>
+            <!-- <th>Match Percentage</th> -->
+            <!-- <th>Type</th> -->
+            <!-- <th>Qualité</th> -->
+            <th>Genres</th>
+            <th>Durée</th>
+            <th>URL Bande Annonce</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="films">
+          <tr *ngFor="let film of getFilms.controls; let i = index" [formGroupName]="i">
+            <!-- <td><input type="number" class="form-control" formControlName="id"></td> -->
+            <td><input type="text" class="form-control" formControlName="titre"></td>
+            <td><input type="text" class="form-control" formControlName="description"></td>
+            <td><input type="date" class="form-control" formControlName="date_sortie"></td>
+            <!-- <td><input type="number" class="form-control" formControlName="matchPercentage"></td> -->
+            <!-- <td><input type="text" class="form-control" formControlName="type"></td> -->
+            <!-- <td><input type="text" class="form-control" formControlName="quality"></td> -->
+            <td>
+              <!-- <div class="form-check" *ngFor="let genre of genres">
+                <input class="form-check-input" type="checkbox" [value]="genre" formControlName="genres">
+                <label class="form-check-label" for="{{genre}}">
+                  {{ genre | titlecase }}
+                </label>
+              </div> -->
+
+             
+              <select class="form-select" formControlName="genre">
+                <option value="" disabled selected>Choisir le genre de films</option>
+                <option *ngFor="let genre of genres" [ngValue]="genre">{{ genre }}</option>
+              </select>
+              
+              
+                          
+              
+            </td>
+            <td><input type="number" class="form-control" formControlName="duree"></td>
+            <td><input type="text" class="form-control" formControlName="url_bande_annonce"></td>
+            <td>
+              <input type="file" class="form-control" (change)="onImageSelected($event, i)">
+            </td>
+                        <td>
+              <button class="btn btn-danger" (click)="removeFilm(i)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-success" [disabled]="filmForm.invalid" (click)="onSave()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+  
+       
+      
+
+
+
+   </div>

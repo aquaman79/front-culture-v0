@@ -1,30 +1,59 @@
 <div class="global">
-<div class="login-top">
-    <img src="/assets/images/logo.png" alt="">
-</div>
+  <div class="login-top">
+      <img src="/assets/images/logo.png" alt="">
+  </div>
 
-<div class="d-flex justify-content-center align-items-center" style="width: 100vw;">
-    <section class="login-box">
-        <h2 class="text-white">Sign in</h2>
-        <form class="mt-4">
-            <div class="mb-3 bg-white rounded px-2">
-              <label for="exampleInputEmail1" class="form-label small-text">Email or phone number</label>
-              <input type="email" class="form-control border-0 p-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="mb-3 bg-white rounded px-2">
-              <label for="exampleInputPassword1" class="form-label small-text">Password</label>
-              <input type="password" class="form-control border-0 p-0" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-danger" style="width: 100%;">Sign In</button>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label text-white small-text" for="exampleCheck1">Remember me</label>
-            </div>
-            <div class="mt-3 ">
-                <p class="text-white"> <span style="color: rgba(212, 212, 212, 0.75);">New to Netflix?</span>  Sign up now.</p>
-            </div>
+  <div class="d-flex justify-content-center align-items-center" style="width: 100vw;">
+      <section class="login-box">
+          <!-- Condition pour afficher le formulaire de connexion -->
+          <div *ngIf="!showSignUp">
+            <h2 class="text-white">Sign in</h2>
+            <form class="mt-4" (ngSubmit)=" onSignIn()">
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="exampleInputEmail1" class="form-label small-text">Email or phone number</label>
+                  <input type="email"  [(ngModel)]="user.email" name="email" class="form-control border-0 p-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="exampleInputPassword1" class="form-label small-text">Password</label>
+                  <input type="password" [(ngModel)]="user.password" name="password" class="form-control border-0 p-0" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-danger" style="width: 100%;">Sign In</button>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label text-white small-text" for="exampleCheck1">Remember me</label>
+                </div>
+                <div class="mt-3">
+                    <p class="text-white" (click)="showSignUpForm()" style="cursor:pointer;"><span style="color: rgba(212, 212, 212, 0.75);">New to Netflix?</span> Sign up now.</p>
+                </div>
+            </form>
+          </div>
 
-          </form>
-    </section>
-</div>
+          <!-- Formulaire d'inscription -->
+          <div *ngIf="showSignUp">
+            <h2 class="text-white">Sign Up</h2>
+            <form (ngSubmit)="onSignUp()" class="mt-4">
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="username" class="form-label small-text">Username</label>
+                  <input type="text" class="form-control border-0 p-0" id="username" placeholder="Username" [(ngModel)]="user.username" name="username">
+                </div>
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="name" class="form-label small-text">Name</label>
+                  <input type="text" class="form-control border-0 p-0" id="name" placeholder="Name" [(ngModel)]="user.name" name="name">
+                </div>
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="email" class="form-label small-text">Email</label>
+                  <input type="email" class="form-control border-0 p-0" id="email" placeholder="Email" [(ngModel)]="user.email" name="email">
+                </div>
+                <div class="mb-3 bg-white rounded px-2">
+                  <label for="password" class="form-label small-text">Password</label>
+                  <input type="password" class="form-control border-0 p-0" id="password" placeholder="Password" [(ngModel)]="user.password" name="password">
+                </div>
+                <button type="submit" class="btn btn-danger" style="width: 100%;">Sign Up</button>
+            </form>
+            <div class="mt-3">
+              <p class="text-white" (click)="showSignUpForm()" style="cursor:pointer;"><span style="color: rgba(212, 212, 212, 0.75);">t'as deja un compte ?</span> Sign in now.</p>
+          </div>
+          </div>
+      </section>
+  </div>
 </div>

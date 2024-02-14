@@ -1,0 +1,91 @@
+
+
+.netflix-padding-left{
+    padding-left : 57px;
+}
+
+
+
+
+
+.netflix-navbar{
+   /*  background-color: #0C0C0C !important; */
+   position: fixed;
+   margin-bottom: 10%;
+   width: 100vw;
+   z-index: 1000;
+    transition: background 0.2s linear;
+}
+
+
+.netflix-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.navbar-brand img{
+    width: 100px;
+}
+
+.netflix-dropdown-box{
+display: none;
+}
+
+.netflix-dropdown{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.netflix-nav{
+    align-items: center;
+}
+
+
+.netflix-nav button{
+   background-color: transparent;
+   color: rgba(255,255, 255, 0.616);
+   border: none;
+   font-size: 13px
+}
+
+
+.netflix-nav button:hover{
+color: #fff;
+}
+
+i{
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.netflix-profile{
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius:4px ;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+
+/*
+.global {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.850);
+
+}
+
+*/
+
+
+.interieur {
+    padding-top: 80px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+    gap: 20px;
+
+  }
+

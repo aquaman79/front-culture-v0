@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { PanierComponent } from './panier/panier.component';
+import { AdminAjouteFilmComponent } from './admin-ajoute-film/admin-ajoute-film.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LandingComponent,
-    PanierComponent
+    PanierComponent,
+    AdminAjouteFilmComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
