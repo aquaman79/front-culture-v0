@@ -33,14 +33,35 @@
           </section>
         </div>
       </section>
-      <section class="right d-flex align-items-center">
+      <section class=" d-flex align-items-center flex-wrap mx-5">
+        <div class="d-flex flex-wrap ">
+          <form class=" d-flex flex-wrap position-relative">
+            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
+          </form>
+        </div>
+      
 
-        <div class="cart d-flex" style="color: #9e0c39; font-weight: bold;font-size: larger;">
+        <!-- <div class="cart d-flex mx-5 border-radius:20%" style="background-color: #9e0c39; font-weight: bold;font-size: larger; border-radius: 25% 10%;">
           <a routerLink="/panier">
-            <i class="bi bi-cart" id="count">{{ count }}</i>
+            <i class="bi bi-cart" style="background-color: #9e0c39" id="count">{{ count }}</i>
+          </a>
+        </div> -->
+        <div class="mx-5">
+          <a routerLink="/panier" class="btn " style="background-color: #83a300;">
+            <span class="bi bi-cart " ></span> {{ count }}
           </a>
         </div>
-        <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i>
+
+
+        <div>
+          <a href="#" class="btn " style="background-color: #fbffe3;">
+            <span class="glyphicon glyphicon-log-out " ></span> Deconnexion
+          </a>
+        </div>
+        <!-- <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i> -->
+
+       
         <!-- <i class="bi bi-bell-fill"></i> -->
 
 
