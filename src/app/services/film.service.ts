@@ -15,7 +15,6 @@ export class FilmService {
   getFilms(): Observable<Film[]> {
     return this.http.get<Film[]>(this.apiUrl);
   }
-
    headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': localStorage.getItem('access_token') || '' // Provide a fallback value
