@@ -13,7 +13,7 @@ export class FilmService {
   constructor(private http: HttpClient) { }
 
   getFilms(): Observable<Film[]> {
-    return this.http.get<Film[]>(this.apiUrl);
+    return this.http.get<Film[]>(this.apiUrl,this.options);
   }
    headers = new HttpHeaders({
     'Content-Type': 'application/json',
