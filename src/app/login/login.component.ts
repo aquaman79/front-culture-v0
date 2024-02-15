@@ -41,7 +41,7 @@ export class LoginComponent {
     // Supposant que `email` et `password` sont les propriétés de l'objet `user` utilisées pour la connexion
     this.userService.loginUser({
       username: this.user.email,
-      password: this.user.motDePasse
+      motDePasse: this.user.motDePasse
     }).subscribe({
       next: (response) => {
         if (response.status === 200) {
