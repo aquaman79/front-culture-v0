@@ -131,9 +131,11 @@
         <div *ngFor="let group of groupedFilms; let i = index" class="carousel-item" [class.active]="i === 0">
           <div class="d-flex flex-wrap">
             <!-- <div *ngFor="let film of group" class="card m-2" style="width: 18rem;" (click)="selectFilm(film)"> -->
-              <div *ngFor="let film of group" class="card m-2" style="width: 18rem;">
+              <div *ngFor="let film of group" class="card m-2 " style="width: 18rem; ">
 
-              <img [src]="film.url_photo" class="card-img-top" alt="Image du film">
+              <!-- <img [src]="film.url_photo" class="card-img-top" alt="Image du film"> -->
+              <img [src]="film.imageBase64"  class="card-img-top image-resize"  alt="Description de l'image">
+
               <div class="card-body">
                 <section class="d-flex justify-content-between">
                   <div>
@@ -146,12 +148,12 @@
                     <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
                   </div>
                 </section>
-                <section class="d-flex align-items-center justify-content-between">
+                <!-- <section class="d-flex align-items-center justify-content-between">
                   <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
                   <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
                   <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
-                </section>
-                <span class="netflix-card-text text-white">{{ film.genres.join(' • ') }}</span>
+                </section> -->
+                <span class="netflix-card-text text-white">{{ film.genre }}</span>
               </div>
             </div>
           </div>
@@ -192,7 +194,7 @@
             <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="carousel-item" [class.active]="i === 0">
               <div class="d-flex flex-wrap">
                 <div class="card m-2" style="width: 18rem;">
-                  <img [src]="film.url_photo" class="card-img-top" alt="Image du film">
+                  <!-- <img [src]="film.url_photo" class="card-img-top" alt="Image du film"> -->
                   <div class="card-body">
                     <section class="d-flex justify-content-between">
                       <div>
@@ -206,11 +208,11 @@
                       </div>
                     </section>
                     <section class="d-flex align-items-center justify-content-between">
-                      <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
+                      <!-- <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
                       <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
-                      <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
+                      <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span> -->
                     </section>
-                    <span class="netflix-card-text text-white">{{ film.genres.join(' • ') }}</span>
+                    <span class="netflix-card-text text-white">{{ film.genre }}</span>
                   </div>
                 </div>
               </div>
@@ -282,7 +284,7 @@
     <!-- Carte de détails du film -->
     <div class="col-lg-4">
       <div class="card">
-        <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap">
+        <!-- <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap"> -->
         <div class="card-body text-white">
           <h3>{{ selectedFilm.titre }}</h3>
           <p>{{ selectedFilm.description }}</p>

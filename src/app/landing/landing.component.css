@@ -228,6 +228,12 @@ i{
     position: absolute !important;
 }
 
+
+.image-resize {
+    width: 18rem;
+    object-fit: cover; /* Cette propriété assure que l'image couvre entièrement la zone définie sans perdre ses proportions. */
+  }
+  
 .cart  p {
     display: flex ;
     color: red;

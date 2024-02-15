@@ -8,7 +8,7 @@ import { Film } from '../modele/film' // Assurez-vous que le chemin est correct
 })
 export class FilmService {
 
-  private apiUrl = 'http://votre-api/films'; // Remplacez avec l'URL de l'API
+  private apiUrl = '/api/v1/films'; // Remplacez avec l'URL de l'API
 
   constructor(private http: HttpClient) { }
 

@@ -10,15 +10,15 @@ import { User } from '../modele/user';
 })
 export class UserService {
 
-  private baseUrl = 'https://your-backend-api.com/users'; // Remplacez par l'URL de votre API
+  private baseUrl = '/api/v1/'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
   registerUser(user: User): Observable<any> {
-    return this.http.post(this.baseUrl + '/register', user);
+    return this.http.post(this.baseUrl + '/inscription', user);
   }
 
   loginUser(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, credentials);
+    return this.http.post(`${this.baseUrl}/connexion`, credentials);
   }
 }

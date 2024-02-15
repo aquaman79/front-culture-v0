@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service'; // Assurez-vous que le chemin est correct
 import { User } from '../modele/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,13 @@ export class LoginComponent {
   // Initialisez `user` comme un objet qui suit la structure de l'interface `User`
   user: User = {
     username: '',
-    name: '',
+    nom: '',
     email: '',
-    password: '',
+    motDePasse: '',
     isAdmin: false // Ou omettez cette propriété si elle est optionnelle et définie côté serveur
   };
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   showSignUpForm(): void {
     this.showSignUp = !this.showSignUp;
@@ -27,11 +28,12 @@ export class LoginComponent {
   onSignUp(): void {
     this.userService.registerUser(this.user).subscribe({
       next: (response) => {
-        console.log(response);
-        // Gérez la réponse ici, par exemple redirigez l'utilisateur ou affichez un message de succès
+        if (response.status === 200) {
+          this.router.navigate(['/login']); 
+        }
       },
       error: (error) => {
-        console.error('Erreur lors de linscription', error);
+        console.error(error);
       }
     });
   }
@@ -39,11 +41,12 @@ export class LoginComponent {
     // Supposant que `email` et `password` sont les propriétés de l'objet `user` utilisées pour la connexion
     this.userService.loginUser({
       email: this.user.email,
-      password: this.user.password
+      password: this.user.motDePasse
     }).subscribe({
       next: (response) => {
-        console.log(response);
-        // Gérez la réponse ici, par exemple en stockant le token de l'utilisateur et en redirigeant vers une autre page
+        if (response.status === 200) {
+          this.router.navigate(['']); 
+        }
       },
       error: (error) => {
         console.error('Erreur lors de la connexion', error);

@@ -28,10 +28,12 @@ export class AdminAjouteFilmComponent {
     const filmFormGroup = this.fb.group({
         titre: ['', Validators.required],
         description: ['', Validators.required],
-        date_sortie: [''],
+        dateSortie: [''],
         genre: [null, Validators.required],
         // Ajoutez cette ligne pour l'image
-        imageBase64: [null] // Vous pouvez initialiser à null ou à une chaîne vide
+        imageBase64: [null], // Vous pouvez initialiser à null ou à une chaîne vide
+        urlBandeAnnonce: ['', Validators.required]
+
     });
     this.getFilms.push(filmFormGroup);
 }
@@ -80,6 +82,31 @@ export class AdminAjouteFilmComponent {
       reader.readAsDataURL(file);
     }
   }
+
+  onVideoSelected(event: any, index: number) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const base64Video = e.target.result as string;
+        // Casting vers FormArray, similaire à la méthode pour les images
+        const filmArray = this.filmForm.get('films') as FormArray;
+        if (filmArray) {
+          // Utiliser FormGroup au lieu de AbstractControl, comme avec les images
+          const filmGroup = filmArray.at(index) as FormGroup;
+          if (filmGroup) {
+            // Vous pouvez avoir un champ différent pour les vidéos, par exemple 'videoBase64'
+            const videoBase64Control = filmGroup.get('videoBase64');
+            if (videoBase64Control) {
+              videoBase64Control.setValue(base64Video);
+            }
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  
   
   
   

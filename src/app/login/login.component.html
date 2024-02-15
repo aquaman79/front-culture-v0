@@ -15,7 +15,7 @@
                 </div>
                 <div class="mb-3 bg-white rounded px-2">
                   <label for="exampleInputPassword1" class="form-label small-text">Password</label>
-                  <input type="password" [(ngModel)]="user.password" name="password" class="form-control border-0 p-0" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" [(ngModel)]="user.motDePasse" name="password" class="form-control border-0 p-0" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-danger" style="width: 100%;">Sign In</button>
                 <div class="form-group form-check">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-3 bg-white rounded px-2">
                   <label for="name" class="form-label small-text">Name</label>
-                  <input type="text" class="form-control border-0 p-0" id="name" placeholder="Name" [(ngModel)]="user.name" name="name">
+                  <input type="text" class="form-control border-0 p-0" id="name" placeholder="Name" [(ngModel)]="user.nom" name="name">
                 </div>
                 <div class="mb-3 bg-white rounded px-2">
                   <label for="email" class="form-label small-text">Email</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="mb-3 bg-white rounded px-2">
                   <label for="password" class="form-label small-text">Password</label>
-                  <input type="password" class="form-control border-0 p-0" id="password" placeholder="Password" [(ngModel)]="user.password" name="password">
+                  <input type="password" class="form-control border-0 p-0" id="password" placeholder="Password" [(ngModel)]="user.motDePasse" name="password">
                 </div>
                 <button type="submit" class="btn btn-danger" style="width: 100%;">Sign Up</button>
             </form>
