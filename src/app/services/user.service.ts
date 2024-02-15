@@ -18,7 +18,7 @@ export class UserService {
     return this.http.post(this.baseUrl + '/inscription', user);
   }
 
-  loginUser(credentials: { email: string; password: string }): Observable<any> {
+  loginUser(credentials: { username: string; password: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/connexion`, credentials);
   }
 }

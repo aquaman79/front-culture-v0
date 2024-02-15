@@ -40,7 +40,7 @@ export class LoginComponent {
   onSignIn(): void {
     // Supposant que `email` et `password` sont les propriétés de l'objet `user` utilisées pour la connexion
     this.userService.loginUser({
-      email: this.user.email,
+      username: this.user.email,
       password: this.user.motDePasse
     }).subscribe({
       next: (response) => {
