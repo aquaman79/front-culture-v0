@@ -12,7 +12,7 @@ export class LoginComponent {
   showSignUp: boolean = false;
   // Initialisez `user` comme un objet qui suit la structure de l'interface `User`
   user: User = {
-    username: '',
+    pseudo: '',
     nom: '',
     email: '',
     motDePasse: '',

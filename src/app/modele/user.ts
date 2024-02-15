@@ -1,9 +1,8 @@
 export interface User {
     id?: number;
-    username: string;
+    pseudo: string;
     nom: string;
     email: string;
     motDePasse: string;
-    registrationDate?: Date;
     isAdmin?: boolean;
   }
