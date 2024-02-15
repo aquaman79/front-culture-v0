@@ -134,7 +134,7 @@
               <div *ngFor="let film of group" class="card m-2 " style="width: 18rem; ">
 
               <!-- <img [src]="film.url_photo" class="card-img-top" alt="Image du film"> -->
-              <img [src]="film.imageBase64"  class="card-img-top image-resize"  alt="Description de l'image">
+              <img [src]="'data:image/jpeg;base64,' + film.imageBase64" class="card-img-top image-resize" alt="Description de l'image">
 
               <div class="card-body">
                 <section class="d-flex justify-content-between">

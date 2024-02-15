@@ -155,9 +155,11 @@ export class LandingComponent {
   ngOnInit() {
     this.filmService.getFilms().subscribe(data => {
       this.films = data;
+      this.groupFilms();
+      this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
     });
-    this.groupFilms();
-    this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
+  
+   
 
   }
   genres: string[] = [];
