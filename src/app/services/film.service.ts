@@ -17,7 +17,7 @@ export class FilmService {
   }
    headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': localStorage.getItem('access_token') || '' // Provide a fallback value
+    'Authorization': 'Bearer '+localStorage.getItem('access_token') || '' // Provide a fallback value
   });
  options = { headers: this.headers };
    // Méthode pour ajouter une liste de films
