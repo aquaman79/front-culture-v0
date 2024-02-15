@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Film } from '../modele/film' // Assurez-vous que le chemin est correct
 
@@ -16,8 +16,13 @@ export class FilmService {
     return this.http.get<Film[]>(this.apiUrl);
   }
 
+   headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.getItem('access_token') || '' // Provide a fallback value
+  });
+ options = { headers: this.headers };
    // Méthode pour ajouter une liste de films
    addFilms(films: Film[]): Observable<any> {
-    return this.http.post(this.apiUrl, films);
+    return this.http.post(this.apiUrl, films,this.options);
   }
 }

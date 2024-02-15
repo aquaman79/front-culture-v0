@@ -44,6 +44,8 @@ export class LoginComponent {
       motDePasse: this.user.motDePasse
     }).subscribe({
       next: (response) => {
+        localStorage.setItem("acces_token",response.jetonJWT)
+        console.log(response.jetonJWT)
         if (response.status === 200) {
           this.router.navigate(['']); 
         }
