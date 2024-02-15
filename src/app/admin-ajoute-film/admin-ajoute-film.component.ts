@@ -66,19 +66,20 @@ export class AdminAjouteFilmComponent {
       const reader = new FileReader();
       reader.onload = (e: any) => {
         const base64Image = e.target.result as string;
-        // Casting vers FormArray
+        const pureBase64Image = base64Image.split(',')[1]; // Cela suppose que le résultat contient une virgule, séparant le préfixe de la partie Base64
+        
         const filmArray = this.filmForm.get('films') as FormArray;
         if (filmArray) {
-          // Utiliser FormGroup au lieu de AbstractControl
           const filmGroup = filmArray.at(index) as FormGroup;
           if (filmGroup) {
             const imageBase64Control = filmGroup.get('imageBase64');
             if (imageBase64Control) {
-              imageBase64Control.setValue(base64Image);
+              imageBase64Control.setValue(pureBase64Image);
             }
           }
         }
       };
+      
       reader.readAsDataURL(file);
     }
   }
