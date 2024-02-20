@@ -9,9 +9,12 @@ import { PanierComponent } from './panier/panier.component';
 import { AdminAjouteFilmComponent } from './admin-ajoute-film/admin-ajoute-film.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'primeng/carousel';
+
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     LoginComponent,
     LandingComponent,
@@ -23,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

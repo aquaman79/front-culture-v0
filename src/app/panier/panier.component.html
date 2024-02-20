@@ -3,94 +3,110 @@
 <div class="global">
 
 
-  <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
-    <div class="container-fluid">
-      <div class="netflix-row">
-        <section class="left d-flex align-items-center">
-          <a class="navbar-brand" href="#">
-            <img src="/assets/images/logo.png" alt="">
-          </a>
-          <!-- dropdown-->
-
-          <div class="netflix-dropdown-box dropdown">
-            <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Browse
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Home</a></li>
-              <li><a class="dropdown-item" href="#">Tv shows</a></li>
-              <li><a class="dropdown-item" href="#"> Movies</a></li>
-            </ul>
-          </div>
-
-          <div class="netflix-nav">
-            <section>
-              <button> Home </button>
-              <button> Tvshows </button>
-              <button> Movies </button>
-              <button> News & populae </button>
-              <button> My list </button>
-            </section>
-
-
-          </div>
-        </section>
-        <section class="right d-flex align-items-center">
-
-          <div class="cart d-flex">
-            <i class="bi bi-cart" id="count">{{ count }}</i>
-          </div>
-          <i class="bi bi-search"></i>
-          <i class="bi bi-bell-fill"></i>
-
-
-
-          <section class="netflix-profile">
-
+  <div class="body position-relative">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
+      <div class="container-fluid">
+        <div class="netflix-row">
+          <section class="left d-flex align-items-center">
+            <a class="navbar-brand" href="#">
+              <img src="/assets/images/logo.png" alt="">
+            </a>
+            <!-- dropdown-->
+    
+            <div class="netflix-dropdown-box dropdown">
+              <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Browse
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Home</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Tv shows</a></li>
+                <li><a class="dropdown-item" href="#"> Movies</a></li> -->
+                <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
+    
+              </ul>
+            </div>
+    
+            <div class="netflix-nav">
+              <section >
+                <button style="color: #9e0c39; font-weight: bold;font-size: larger;" >  Home </button>
+                <!-- <button> Tvshows </button>
+                <button> Movies </button>
+                <button> News & populae </button> -->
+                <button style="color: #9e0c39; font-weight: bold;font-size: larger;"> My list </button>
+              </section>
+            </div>
           </section>
-        </section>
-
+          <section class=" d-flex align-items-center flex-wrap mx-5">
+            <div class="d-flex flex-wrap ">
+              <form class=" d-flex flex-wrap position-relative">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
+              </form>
+            </div>
+          
+    
+            <!-- <div class="cart d-flex mx-5 border-radius:20%" style="background-color: #9e0c39; font-weight: bold;font-size: larger; border-radius: 25% 10%;">
+              <a routerLink="/panier">
+                <i class="bi bi-cart" style="background-color: #9e0c39" id="count">{{ count }}</i>
+              </a>
+            </div> -->
+            <div class="mx-5">
+              <a routerLink="/panier" class="btn " style="background-color: #83a300;">
+                <span class="bi bi-cart " ></span> {{ count }}
+              </a>
+            </div>
+    
+    
+            <div>
+              <a href="#" class="btn " style="background-color: #fbffe3;">
+                <span class="glyphicon glyphicon-log-out " ></span> Deconnexion
+              </a>
+            </div>
+            <!-- <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i> -->
+    
+           
+            <!-- <i class="bi bi-bell-fill"></i> -->
+    
+    
+    
+            <!-- <section class="netflix-profile">
+    
+            </section> -->
+          </section>
+    
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Inclure la barre de navigation ici -->
-
-  <!-- Contenu de la page de panier -->
-  <div class="panier-container">
-
-
-
-
-    <!-- Carte pour le total et la commande -->
-
-
-    <div class="card" *ngFor="let film of panier">
-      <!-- <img [src]="film.url_photo" class="card-img-top" alt="Image du film"> -->
-      <div class="card-body">
-        <h5 class="card-title">{{ film.titre }}</h5>
-        <p class="card-text">{{ film.description }}</p>
-        <button class="btn btn-primary">Acheter</button>
-        <i class="bi bi-trash" (click)="removeFromPanier(film)"></i>
+  <div class="global">
+    <div class="container-fluid  panier-container">
+      <div class="row ">
+        <!-- Informations de commande à gauche -->
+       
+        <!-- Cartes des films dans le panier à droite -->
+        <div class="col-md-9">
+          <div class="row">
+            <div class="card col-md-6" *ngFor="let film of panier">
+              <img [src]="'data:image/jpeg;base64,' + film.imageBase64" class="card-img-top image-resize" alt="Description de l'image">
+              <div class="card-body">
+                <h5 class="card-title">{{ film.titre }}</h5>
+                <p class="card-text">{{ film.description }}</p>
+                <button class="btn btn-primary">Acheter</button>
+                <i class="bi bi-trash" (click)="removeFromPanier(film)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card order-card">
+            <p>Nombre de films: {{ panier.length }}</p>
+            <button class="btn btn-success" (click)="commander()">Commander</button>
+          </div>
+        </div>        
       </div>
     </div>
-  <!-- Colonne pour les films -->
-
-
-
-  <div class="order-card">
-    <p>Nombre de films: {{ panier.length }}</p>
-    <button class="btn btn-success">Commander</button>
   </div>
-
-
-</div>
-
-
-
-
-
-
-
-</div>
+  
