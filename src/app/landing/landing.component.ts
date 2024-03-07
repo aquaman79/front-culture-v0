@@ -16,7 +16,7 @@ export class LandingComponent {
 
 
  //Exemples de films
- 
+ /*
   films : Film[] = [
     {
         id: 2,
@@ -182,8 +182,8 @@ export class LandingComponent {
   //   }
   // ];
 
-  
- //films: Film[] = [];
+  */
+ films: Film[] = [];
 
   constructor(private filmService: FilmService, private panierService: PanierService) {}
 
@@ -203,17 +203,17 @@ export class LandingComponent {
   }
   
    ngOnInit() {
-  /*   this.filmService.getFilms().subscribe(data => {
+    this.filmService.getFilms().subscribe(data => {
        this.films = data;
        this.groupFilms();
        this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
-     });*/
+     });
 
-    this.groupFilms();
+    //this.groupFilms();
      console.log("je suis ici");
      console.log(this.genresGroupedFilms);
 
-    this.extractUniqueGenres();
+    //this.extractUniqueGenres();
   
    
 
