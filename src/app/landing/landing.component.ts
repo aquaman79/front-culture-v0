@@ -16,7 +16,7 @@ export class LandingComponent {
 
 
  //Exemples de films
- /*
+ 
   films : Film[] = [
     {
         id: 2,
@@ -181,17 +181,17 @@ export class LandingComponent {
   //     genres: ["Thriller", "Horreur"]
   //   }
   // ];
-*/
+
   
- films: Film[] = [];
+ //films: Film[] = [];
 
   constructor(private filmService: FilmService, private panierService: PanierService) {}
 
-  // ngOnInit() {
-  //   this.filmService.getFilms().subscribe(data => {
-  //     this.films = data;
-  //   });
-  // }
+  /* ngOnInit() {
+     this.filmService.getFilms().subscribe(data => {
+       this.films = data;
+     });
+   }*/
 
 
 
@@ -203,17 +203,17 @@ export class LandingComponent {
   }
   
    ngOnInit() {
-     this.filmService.getFilms().subscribe(data => {
+  /*   this.filmService.getFilms().subscribe(data => {
        this.films = data;
        this.groupFilms();
        this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
-     });
+     });*/
 
-     //this.groupFilms();
+    this.groupFilms();
      console.log("je suis ici");
      console.log(this.genresGroupedFilms);
 
-    //this.extractUniqueGenres();
+    this.extractUniqueGenres();
   
    
 
@@ -256,22 +256,23 @@ export class LandingComponent {
   }
 
 // Dans PanierComponent
-
+idUser = localStorage.getItem("idUser");
 addToPanier(film: Film) {
   // Vérifier si le film est déjà dans le panier en cherchant son id
   const filmExiste = this.panier.find(f => f.id === film.id);
 
   // Si le film n'existe pas déjà dans le panier, l'ajouter et mettre à jour via le backend
   if (!filmExiste) {
-    this.panier.push(film);
+ /*   this.panier.push(film);
     this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
     localStorage.setItem('panier', JSON.stringify(this.panier));
+    */
 
     // Mettre à jour le panier dans le backend
- /*   this.panierService.postPanier(this.panier).subscribe({
+    this.panierService.postPanier(this.panier,this.idUser).subscribe({
       next: (response: any ) => console.log('Panier mis à jour avec succès', response),
       error: (error: any ) => console.error('Erreur lors de la mise à jour du panier', error)
-    });*/
+    });
   }
 }
 
@@ -279,17 +280,15 @@ removeFromPanier(film: Film) {
   const index = this.panier.findIndex(f => f.id === film.id);
 
   if (index > -1) {
-    this.panier.splice(index, 1); // Supprimer le film du tableau
-    this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
+  /*  this.panier.splice(index, 1); // Supprimer le film du tableau
+    this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier*/
 
     // Mettre à jour le panier dans le backend
-   /* this.panierService.postPanier(this.panier).subscribe({
+    this.panierService.postPanier(this.panier,this.idUser).subscribe({
       next: (response) => console.log('Panier mis à jour avec succès', response),
       error: (error) => console.error('Erreur lors de la mise à jour du panier', error)
-    });*/
+    });
   }
 }
-
-
 
 }
