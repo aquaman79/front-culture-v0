@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="netflix-row">
       <section class="left d-flex align-items-center">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="/landing">
           <img src="/assets/images/logo.png" alt="">
         </a>
         <!-- dropdown-->
@@ -20,16 +20,17 @@
             <li><a class="dropdown-item" href="#"> Movies</a></li> -->
             <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
 
+
           </ul>
         </div>
 
         <div class="netflix-nav">
           <section >
-            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" >  Home </button>
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/landing" >  Home </button>
             <!-- <button> Tvshows </button>
             <button> Movies </button>
             <button> News & populae </button> -->
-            <button style="color: #9e0c39; font-weight: bold;font-size: larger;"> My list </button>
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
           </section>
         </div>
       </section>
@@ -281,7 +282,7 @@
     <!-- Carte de détails du film -->
     <div class="col-lg-4">
       <div class="card">
-        <!-- <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap"> -->
+        <img class="card-img-top" [src]="'data:image/jpeg;base64,' + selectedFilm.imageBase64" alt="Card image cap">
         <div class="card-body text-white">
           <h3>{{ selectedFilm.titre }}</h3>
           <p>{{ selectedFilm.description }}</p>
@@ -296,9 +297,9 @@
         <div class="comments-list">
           <div class="comment" *ngFor="let comment of selectedFilm.comments">
             <div class="d-flex">
-              <div class="comment-avatar">
+              <!-- <div class="comment-avatar">
                 <img src="path_to_avatar_image" alt="avatar" class="rounded-circle" style="width: 40px; height: 40px;">
-              </div>
+              </div> -->
               <div class="flex-grow-1 ms-3">
                 <h5 class="mt-0">{{ comment.auteur }}</h5>
                 <p>{{ comment.contenu }}</p>
@@ -307,7 +308,7 @@
           </div>
         </div>
         <!-- Formulaire pour ajouter un commentaire -->
-         <div class="submit-comment mt-4">
+         <!-- <div class="submit-comment mt-4">
           <h4>Ajouter un commentaire</h4>
           <form>
             <div class="mb-3">
@@ -320,15 +321,12 @@
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
           </form>
-        </div> 
+        </div>  -->
       </div>
     </div>
   </div>
 </div>
-
-
-
-  </div>
+</div>
 
 
     <!-- Carousel Bootstrap avec des indicateurs et des contrôles -->

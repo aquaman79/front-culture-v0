@@ -10,6 +10,7 @@ import { AdminAjouteFilmComponent } from './admin-ajoute-film/admin-ajoute-film.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'primeng/carousel';
+import { AchatComponent } from './achat/achat.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CarouselModule } from 'primeng/carousel';
     LoginComponent,
     LandingComponent,
     PanierComponent,
-    AdminAjouteFilmComponent
+    AdminAjouteFilmComponent,
+    AchatComponent
   ],
   imports: [
     BrowserModule,

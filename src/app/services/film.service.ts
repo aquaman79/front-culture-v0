@@ -24,4 +24,8 @@ export class FilmService {
    addFilms(films: Film[]): Observable<any> {
     return this.http.post(this.apiUrl, films,this.options);
   }
+
+  modifieFilm(film : Film, id :any ){
+    return this.http.put(`this.apiUrl/${id}`,film,this.options);
+  }
 }

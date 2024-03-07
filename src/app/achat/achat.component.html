@@ -1,0 +1,278 @@
+<div class="body position-relative">
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
+    <div class="container-fluid">
+      <div class="netflix-row">
+        <section class="left d-flex align-items-center">
+          <a class="navbar-brand" routerLink="/landing">
+            <img src="/assets/images/logo.png" alt="">
+          </a>
+          <!-- dropdown-->
+  
+          <div class="netflix-dropdown-box dropdown">
+            <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Browse
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" routerLink="/landing">Home</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Tv shows</a></li>
+              <li><a class="dropdown-item" href="#"> Movies</a></li> -->
+              <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
+  
+            </ul>
+          </div>
+  
+          <div class="netflix-nav">
+            <section >
+              <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/landing" >  Home </button>
+            <!-- <button> Tvshows </button>
+            <button> Movies </button>
+            <button> News & populae </button> -->
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
+            </section>
+          </div>
+        </section>
+        <section class=" d-flex align-items-center flex-wrap mx-5">
+          <div class="d-flex flex-wrap ">
+            <form class=" d-flex flex-wrap position-relative">
+              <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+              <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
+            </form>
+          </div>
+        
+  
+          <!-- <div class="cart d-flex mx-5 border-radius:20%" style="background-color: #9e0c39; font-weight: bold;font-size: larger; border-radius: 25% 10%;">
+            <a routerLink="/panier">
+              <i class="bi bi-cart" style="background-color: #9e0c39" id="count">{{ count }}</i>
+            </a>
+          </div> -->
+          <div class="mx-5">
+            <!-- <a routerLink="/panier" class="btn " style="background-color: #83a300;">
+              <span class="bi bi-cart " ></span> {{ count }}
+            </a> -->
+          </div>
+  
+  
+          <div>
+            <a href="#" class="btn " style="background-color: #fbffe3;">
+              <span class="glyphicon glyphicon-log-out " ></span> Deconnexion
+            </a>
+          </div>
+          <!-- <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i> -->
+  
+         
+          <!-- <i class="bi bi-bell-fill"></i> -->
+  
+  
+  
+          <!-- <section class="netflix-profile">
+  
+          </section> -->
+        </section>
+  
+      </div>
+    </div>
+  </nav>
+  <!-- navrab end -->
+  
+  <!-- video contents -->
+  
+  <!-- video contents end -->
+  <div class="">
+    <section class="netflix-home-video">
+      <div class="top"></div>
+      <div class="bottom"></div>
+  
+      <!-- <video loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+        <source src="/assets/video/video.mp4" type="video/mp4">
+      </video> -->
+      <img src="/assets/images/achat.webp" alt="" style="  display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;"> 
+ 
+      <div class="content">
+        <!-- <section class="left"> -->
+          <!-- <img src="/assets/images/image2.webp" alt=""> -->
+  
+          <!-- <div class="d-flex" style="margin-top: 190%"> -->
+            <!-- <button class="btn btn-light m-2"> <i class="bi bi-play-fill" style="color: black; padding: 0%;"></i> Play Now
+            </button> -->
+            <!-- <button class="btn btn-secondary m-2"><i class="bi bi-info-circle" style=" padding: 0%;"></i> More
+              Info</button>
+          </div> -->
+        <!-- </section> -->
+  
+      </div>
+    </section>
+  
+  </div>
+  
+  <div class="slider-box slider">
+    <div class="container-fluid">
+      <!-- Section Trending --> 
+      <div class="container-fluid">
+      <div class="d-flex flex-wrap">
+        <div *ngFor="let film of achats" class="card m-2  " style="width: 18rem; ">
+          <img [src]="'data:image/jpeg;base64,' + film.imageBase64" class="card-img-top image-resize" alt="Description de l'image">
+  
+                <div class="card-body">
+                  <section class="d-flex justify-content-between">
+                    <div>
+                      <i class="bi bi-play-circle-fill card-icon"></i>
+                      <!-- <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i> -->
+                      <!-- <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i> -->
+                    </div>
+                    <div>
+                      <!-- <i class="bi bi-arrow-down-circle card-icon"></i> -->
+                      <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
+                    </div>
+                  </section>
+                  <!-- <section class="d-flex align-items-center justify-content-between">
+                    <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
+                    <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
+                    <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
+                  </section> -->
+                  <span class="netflix-card-text text-white">{{ film.genre }}</span>
+        </div>
+      
+        
+      </div>
+    </div>
+  
+  
+      <!-- <div class="container-fluid">
+        <div *ngFor="let genre of genres" class="mt-4">
+          <section class="d-flex justify-content-between">
+            <p class="text-white"><b>{{ genre }}</b></p>
+          </section>
+          <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="carousel-item" [class.active]="i === 0">
+            <div class="d-flex flex-wrap">
+              <div class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                  <section class="d-flex justify-content-between">
+                    <div>
+                      <i class="bi bi-play-circle-fill card-icon"></i>
+                      <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
+                      <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
+                    </div>
+                    <div>
+                      <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
+                    </div>
+                  </section>
+                  <section class="d-flex align-items-center justify-content-between">
+                  </section>
+                  <span class="netflix-card-text text-white">{{ film.genre }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  
+  
+      
+      <!-- <div class="container-fluid">
+        <div class="detail-card  mx-auto " *ngIf="selectedFilm">
+          <div class="card  position-relative  " style="width: 18rem;">
+            <img class="card-img-top " src="..." alt="Card image cap">
+            <div class="card-body text-white"> -->
+                <!-- Affiche les détails du film sélectionné -->
+                <!-- <h3>{{ selectedFilm.titre }}</h3>
+                <p>{{ selectedFilm.description }}</p> -->
+                <!-- Autres détails -->
+            <!-- </div>
+          </div>
+        </div>
+      </div>
+      -->
+  
+      <!-- Conteneur global fixe et centré -->
+  <div class="fixed-container detail-card  mx-auto" *ngIf="selectedFilm">
+    <div class="row">
+      <!-- Carte de détails du film -->
+      <div class="col-4">
+        <div class="card ">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body text-white">
+            <h3>{{ selectedFilm.titre }}</h3>
+            <p>{{ selectedFilm.description }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Section d'informations -->
+      <div class="col-8">
+        <div class="info">
+          <!-- Placez ici les informations supplémentaires que vous souhaitez afficher -->
+          <h2>Commentaire</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="fixed-container detail-card mx-auto" *ngIf="selectedFilm">
+    <button type="button" style="background-color: red;" class="btn-close position-absolute top-0 end-0" aria-label="Close" (click)="closeDetails()"></button>
+    <div class="row">
+      <!-- Carte de détails du film -->
+      <div class="col-lg-4">
+        <div class="card">
+          <!-- <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap"> -->
+          <div class="card-body text-white">
+            <h3>{{ selectedFilm.titre }}</h3>
+            <p>{{ selectedFilm.description }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Section d'informations et de commentaires -->
+      <div class="col-lg-8">
+        <div class="info">
+          <h2>Commentaires</h2>
+          <!-- Liste des commentaires -->
+          <div class="comments-list">
+            <div class="comment" *ngFor="let comment of selectedFilm.comments">
+              <div class="d-flex">
+                <div class="comment-avatar">
+                  <img src="path_to_avatar_image" alt="avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mt-0">{{ comment.auteur }}</h5>
+                  <p>{{ comment.contenu }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Formulaire pour ajouter un commentaire -->
+           <div class="submit-comment mt-4">
+            <h4>Ajouter un commentaire</h4>
+            <form>
+              <div class="mb-3">
+                <label for="commentAuthor" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="commentAuthor" placeholder="Votre nom">
+              </div>
+              <div class="mb-3">
+                <label for="commentContent" class="form-label">Commentaire</label>
+                <textarea class="form-control" id="commentContent" rows="3" placeholder="Votre commentaire"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+    </div>
+  
+  
+      <!-- Carousel Bootstrap avec des indicateurs et des contrôles -->
+    
+  <!-- sliders-end -->
+  
+  
+  
+  
