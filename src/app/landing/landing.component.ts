@@ -201,15 +201,21 @@ export class LandingComponent {
   closeDetails() {
     this.selectedFilm = null;
   }
+  idUser = localStorage.getItem("idUser");
+
   
    ngOnInit() {
     this.filmService.getFilms().subscribe(data => {
        this.films = data;
        this.groupFilms();
        this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
+       this.panierService.getPanier(this.idUser).subscribe(data =>{
+        this.panier = data; 
+       })
+  
      });
-
-    //this.groupFilms();
+  
+   // this.groupFilms();
      console.log("je suis ici");
      console.log(this.genresGroupedFilms);
 
@@ -256,7 +262,6 @@ export class LandingComponent {
   }
 
 // Dans PanierComponent
-idUser = localStorage.getItem("idUser");
 addToPanier(film: Film) {
   // Vérifier si le film est déjà dans le panier en cherchant son id
   const filmExiste = this.panier.find(f => f.id === film.id);
@@ -267,8 +272,9 @@ addToPanier(film: Film) {
     this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
     localStorage.setItem('panier', JSON.stringify(this.panier));
     */
-    this.count = this.panier.length;
     this.panier.push(film);
+    this.count = this.panier.length;
+    console.log("count"+this.count);
     // Mettre à jour le panier dans le backend
     this.panierService.postPanier(this.panier,this.idUser).subscribe({
       next: (response: any ) => console.log('Panier mis à jour avec succès', response),
