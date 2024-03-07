@@ -26,18 +26,18 @@ export class AchatComponent {
      // this.panier = JSON.parse(panierData);
     //}
 
-    const achatData = localStorage.getItem('achats');
+    /*const achatData = localStorage.getItem('achats');
     if (achatData) {
       this.achats = JSON.parse(achatData);
-    }
+    }*/
    
     
-  /*  this.achatService.getAchat(this.id).subscribe({
+    this.achatService.getAchat(this.id).subscribe({
       next: (achats: Film[]) => {
         this.achats = achats;
       },
       error: (error) => console.error('Erreur lors de la récupération du panier', error)
-    });*/
+    });
   }
 
   selectFilm(film: Film) {

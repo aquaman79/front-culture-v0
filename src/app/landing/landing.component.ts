@@ -273,7 +273,7 @@ addToPanier(film: Film) {
 
   // Si le film n'existe pas déjà dans le panier00000000000000000000000000000000000000000, l'ajouter et mettre à jour via le backend
   if (!filmExiste) {
-    this.panier.push(film);
+   // this.panier.push(film);
    // this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
     //localStorage.setItem('panier', JSON.stringify(this.panier));
     
