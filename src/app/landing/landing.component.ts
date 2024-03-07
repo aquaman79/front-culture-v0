@@ -267,7 +267,7 @@ addToPanier(film: Film) {
     this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
     localStorage.setItem('panier', JSON.stringify(this.panier));
     */
-
+    this.count = this.panier.length;
     // Mettre à jour le panier dans le backend
     this.panierService.postPanier(this.panier,this.idUser).subscribe({
       next: (response: any ) => console.log('Panier mis à jour avec succès', response),
@@ -284,6 +284,7 @@ removeFromPanier(film: Film) {
     this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier*/
 
     // Mettre à jour le panier dans le backend
+    this.count = this.panier.length;
     this.panierService.postPanier(this.panier,this.idUser).subscribe({
       next: (response) => console.log('Panier mis à jour avec succès', response),
       error: (error) => console.error('Erreur lors de la mise à jour du panier', error)
