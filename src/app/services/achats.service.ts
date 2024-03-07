@@ -11,12 +11,12 @@ export class AchatsService {
 
   constructor(private http: HttpClient) { }
 
-  postAchat(panier: Film[]): Observable<any> {
-    return this.http.post(`${this.baseUrl}/achats`, panier);
+  postAchat(panier: Film[], id : any ): Observable<any> {
+    return this.http.post(`${this.baseUrl}/achats/${id}`, panier);
   }
 
   // Autres méthodes pour interagir avec le backend, par exemple :
-  getAchat(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/achats`);
+  getAchat(id : any ): Observable<any> {
+    return this.http.get(`${this.baseUrl}/achats/${id}`);
   } 
 }

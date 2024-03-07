@@ -12,13 +12,14 @@ export class PanierService {
 
   constructor(private http: HttpClient) {}
 
-  postPanier(panier: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/panier`, panier);
+  postPanier(panier: any, id: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/panier/${id}`, panier);
   }
+  
 
   // Autres méthodes pour interagir avec le backend, par exemple :
-  getPanier(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/panier`);
+  getPanier(id : any ): Observable<any> {
+    return this.http.get(`${this.baseUrl}/panier/${id}`);
   }
 
 }

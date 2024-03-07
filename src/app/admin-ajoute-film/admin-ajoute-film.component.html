@@ -3,65 +3,90 @@
 
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg  netflix-navbar  netflix-padding-left netflix-padding-right">
-    <div class="container-fluid">
-        <div class="netflix-row">
-            <section class="left d-flex align-items-center">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/images/logo.png" alt="">
-                </a>
-                <!-- dropdown-->
-   
-   <div class="netflix-dropdown-box dropdown">
-    <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Browse
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Home</a></li>
-      <li><a class="dropdown-item" href="#">Tv shows</a></li>
-      <li><a class="dropdown-item" href="#"> Movies</a></li>
-    </ul>
-   </div>
-   
-   <div class="netflix-nav">
-    <section>
-        <button> Home</button>
-        <button> Tvshows </button>
-        <button> Movies </button>
-        <button> News & populae </button>
-        <button> My list </button>
-    </section>
-   
-   
-   </div>
-            </section>
-            <section class="right d-flex align-items-center">
-                
-            <div class="cart d-flex" >
-              <a routerLink="/panier">
-              </a>
-              </div>
-                <i class="bi bi-search"></i>
-                <i class="bi bi-bell-fill"></i>
-   
-   
-   
-                <section class="netflix-profile">
-    
-                </section>
-            </section>
-   
+  <div class="container-fluid">
+    <div class="netflix-row">
+      <section class="left d-flex align-items-center">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/images/logo.png" alt="">
+        </a>
+        <!-- dropdown-->
+
+        <div class="netflix-dropdown-box dropdown">
+          <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Browse
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Home</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Tv shows</a></li>
+            <li><a class="dropdown-item" href="#"> Movies</a></li> -->
+            <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
+
+          </ul>
         </div>
+
+        <div class="netflix-nav">
+          <section >
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" >  Home </button>
+            <!-- <button> Tvshows </button>
+            <button> Movies </button>
+            <button> News & populae </button> -->
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;"> My list </button>
+          </section>
+        </div>
+      </section>
+      <section class=" d-flex align-items-center flex-wrap mx-5">
+        <!-- <div class="d-flex flex-wrap ">
+          <form class=" d-flex flex-wrap position-relative">
+            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
+          </form>
+        </div> -->
+      
+
+        <!-- <div class="cart d-flex mx-5 border-radius:20%" style="background-color: #9e0c39; font-weight: bold;font-size: larger; border-radius: 25% 10%;">
+          <a routerLink="/panier">
+            <i class="bi bi-cart" style="background-color: #9e0c39" id="count">{{ count }}</i>
+          </a>
+        </div> -->
+        <!-- <div class="mx-5">
+          <a routerLink="/panier" class="btn " style="background-color: #83a300;">
+            <span class="bi bi-cart " ></span> {{ count }}
+          </a>
+        </div> -->
+
+
+        <div>
+          <a href="#" class="btn " style="background-color: #fbffe3;">
+            <span class="glyphicon glyphicon-log-out " ></span> Deconnexion
+          </a>
+        </div>
+        <!-- <i class="bi bi-search mx-5" style="color: #9e0c39; font-weight: bold;font-size: larger;"></i> -->
+
+       
+        <!-- <i class="bi bi-bell-fill"></i> -->
+
+
+
+        <!-- <section class="netflix-profile">
+
+        </section> -->
+      </section>
+
     </div>
-   </nav>
+  </div>
+</nav>
    <!-- navrab end -->
 
  <!-- admin-ajoute-film.component.html -->
 <div class="interieur">
     <div class="d-flex justify-content-center">
         <div class="mt-1 mb-2 p-3  text-white rounded text-center w-25" style="background-color: #4d6160;">
-            <h1>Ajouter des Films</h1>
+            <h1>Gestion des Films</h1>
         </div>
     </div>
+
+    
   
     <div class="row mb-3">
       <div class="col text-end">

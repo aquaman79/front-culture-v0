@@ -12,6 +12,8 @@ export class PanierComponent implements OnInit {
   panier: Film[] = [];
   count: number = 0;
 
+  id =  localStorage.getItem("idUser");
+
   constructor(private panierService: PanierService, private achatService: AchatsService) {}
 
   ngOnInit() {
@@ -19,19 +21,19 @@ export class PanierComponent implements OnInit {
   }
   
   getPanierFromBackend() {
-    const panierData = localStorage.getItem('panier');
-    if (panierData) {
-      this.panier = JSON.parse(panierData);
-    }
+   // const panierData = localStorage.getItem('panier');
+    //if (panierData) {
+     // this.panier = JSON.parse(panierData);
+    //}
     this.count = this.panier.length;
-    /*
-    this.panierService.getPanier().subscribe({
+    
+    this.panierService.getPanier(this.id).subscribe({
       next: (panier: Film[]) => {
         this.panier = panier;
         this.count = this.panier.length;
       },
       error: (error) => console.error('Erreur lors de la récupération du panier', error)
-    });*/
+    });
   }
   removeFromPanier(film: Film) {
     const index = this.panier.findIndex(f => f.id === film.id);
@@ -53,14 +55,14 @@ export class PanierComponent implements OnInit {
   commander() {
     if (this.panier.length > 0) {
       // Appel au service pour envoyer la commande
-      this.achatService.postAchat(this.panier).subscribe({
+      this.achatService.postAchat(this.panier,this.id).subscribe({
         next: (response:any ) => {
           console.log('Commande passée avec succès', response);
           // Ici, vous pourriez vouloir vider le panier après une commande réussie
           this.panier = [];
           this.count = 0;
           // Optionnellement, mettre à jour le panier sur le backend si nécessaire
-           this.panierService.postPanier(this.panier).subscribe();
+           this.panierService.postPanier(this.panier,this.id).subscribe();
         },
         error: (error: any ) => console.error('Erreur lors de la commande', error)
       });

@@ -15,7 +15,7 @@
             Browse
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Home</a></li>
+            <li><a class="dropdown-item" routerLink="/landing">Home</a></li>
             <!-- <li><a class="dropdown-item" href="#">Tv shows</a></li>
             <li><a class="dropdown-item" href="#"> Movies</a></li> -->
             <li><a class="dropdown-item" href="#"> Ajouter Film </a></li>
@@ -170,72 +170,69 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
-
-
     <div class="container-fluid">
-      <!-- Section pour chaque Genre de Films -->
+    <div *ngFor="let genre of genres" class="mt-4">
+      <section class="d-flex justify-content-between">
+        <p class="text-white"><b>{{ genre }}</b></p>
+      </section>
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="card m-2  " style="width: 18rem; ">
+        <img [src]="'data:image/jpeg;base64,' + film.imageBase64" class="card-img-top image-resize" alt="Description de l'image">
+
+              <div class="card-body">
+                <section class="d-flex justify-content-between">
+                  <div>
+                    <i class="bi bi-play-circle-fill card-icon"></i>
+                    <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
+                    <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
+                  </div>
+                  <div>
+                    <!-- <i class="bi bi-arrow-down-circle card-icon"></i> -->
+                    <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
+                  </div>
+                </section>
+                <!-- <section class="d-flex align-items-center justify-content-between">
+                  <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
+                  <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
+                  <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
+                </section> -->
+                <span class="netflix-card-text text-white">{{ film.genre }}</span>
+      </div>
+    </div>
+      
+    </div>
+  </div>
+
+
+    <!-- <div class="container-fluid">
       <div *ngFor="let genre of genres" class="mt-4">
         <section class="d-flex justify-content-between">
           <p class="text-white"><b>{{ genre }}</b></p>
         </section>
-    
-        <div id="{{ genre }}Carousel" class="carousel slide">
-          <!-- Indicateurs dynamiques pour chaque genre -->
-          <ol class="carousel-indicators">
-            <li *ngFor="let film of genresGroupedFilms[genre]; let i = index" 
-        attr.data-bs-target="#{{ genre }}Carousel" 
-        attr.data-bs-slide-to="{{i}}" 
-        [class]="i === 0 ? 'active' : ''"></li>
-          </ol>
-    
-          <!-- Contenu du Carrousel pour chaque genre -->
-          <div class="carousel-inner">
-            <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="carousel-item" [class.active]="i === 0">
-              <div class="d-flex flex-wrap">
-                <div class="card m-2" style="width: 18rem;">
-                  <!-- <img [src]="film.url_photo" class="card-img-top" alt="Image du film"> -->
-                  <div class="card-body">
-                    <section class="d-flex justify-content-between">
-                      <div>
-                        <i class="bi bi-play-circle-fill card-icon"></i>
-                        <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
-                        <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
-                      </div>
-                      <div>
-                        <!-- <i class="bi bi-arrow-down-circle card-icon"></i> -->
-                        <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
-                      </div>
-                    </section>
-                    <section class="d-flex align-items-center justify-content-between">
-                      <!-- <p class="netflix-card-text m-0" style="color: rgb(0, 186, 0);">{{ film.matchPercentage }}% match</p>
-                      <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
-                      <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span> -->
-                    </section>
-                    <span class="netflix-card-text text-white">{{ film.genre }}</span>
+        <div *ngFor="let film of genresGroupedFilms[genre]; let i = index" class="carousel-item" [class.active]="i === 0">
+          <div class="d-flex flex-wrap">
+            <div class="card m-2" style="width: 18rem;">
+              <div class="card-body">
+                <section class="d-flex justify-content-between">
+                  <div>
+                    <i class="bi bi-play-circle-fill card-icon"></i>
+                    <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
+                    <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
                   </div>
-                </div>
+                  <div>
+                    <i class="bi bi-info-circle card-icon" (click)="selectFilm(film)"></i>
+                  </div>
+                </section>
+                <section class="d-flex align-items-center justify-content-between">
+                </section>
+                <span class="netflix-card-text text-white">{{ film.genre }}</span>
               </div>
             </div>
           </div>
-    
-          <!-- Contrôles Précédent & Suivant pour chaque genre -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
-    </div>
-    
+    </div> -->
 
-
-
-    
 
     
     <!-- <div class="container-fluid">
