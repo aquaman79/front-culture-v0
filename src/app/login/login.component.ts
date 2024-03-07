@@ -47,7 +47,7 @@ export class LoginComponent {
         localStorage.setItem("access_token",response.jetonJWT)
         localStorage.setItem("idUser",response.utilisateur.id)
         console.log(response.jetonJWT)
-        if (response.status === 200 || response.status ===201 || response.id != null){
+        if (response.status === 200 || response.status ===201 || response.jetonJWT != null){
           this.router.navigate(['/landing']); 
         }
       },
