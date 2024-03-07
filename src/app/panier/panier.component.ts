@@ -11,6 +11,7 @@ import { AchatsService } from '../services/achats.service';
 export class PanierComponent implements OnInit {
   panier: Film[] = [];
   count: number = 0;
+  achat: Film[] = [];
 
   id =  localStorage.getItem("idUser");
 
@@ -21,10 +22,10 @@ export class PanierComponent implements OnInit {
   }
   
   getPanierFromBackend() {
-   // const panierData = localStorage.getItem('panier');
-    //if (panierData) {
-     // this.panier = JSON.parse(panierData);
-    //}
+    const panierData = localStorage.getItem('panier');
+   /* if (panierData) {
+      this.panier = JSON.parse(panierData);
+    }*/
     this.count = this.panier.length;
     
     this.panierService.getPanier(this.id).subscribe({
@@ -54,8 +55,12 @@ export class PanierComponent implements OnInit {
 
   commander() {
     if (this.panier.length > 0) {
+
+
+     // this.count = this.panier.length; // Mettre à jour le compteur de films dans le panier
+      localStorage.setItem('achats', JSON.stringify(this.panier));
       // Appel au service pour envoyer la commande
-      this.achatService.postAchat(this.panier,this.id).subscribe({
+      /*this.achatService.postAchat(this.panier,this.id).subscribe({
         next: (response:any ) => {
           console.log('Commande passée avec succès', response);
           // Ici, vous pourriez vouloir vider le panier après une commande réussie
@@ -65,7 +70,7 @@ export class PanierComponent implements OnInit {
            this.panierService.postPanier(this.panier,this.id).subscribe();
         },
         error: (error: any ) => console.error('Erreur lors de la commande', error)
-      });
+      });*/
     } else {
       console.log('Le panier est vide');
     }

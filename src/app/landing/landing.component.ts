@@ -209,9 +209,13 @@ export class LandingComponent {
        this.films = data;
        this.groupFilms();
        this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
-       this.panierService.getPanier(this.idUser).subscribe(data =>{
-        this.panier = data; 
-       })
+       this.panierService.getPanier(this.idUser).subscribe({
+        next: (panier: Film[]) => {
+          this.panier = panier;
+          this.count = this.panier.length;
+        },
+        error: (error) => console.error('Erreur lors de la récupération du panier', error)
+      });
   
      });
   
