@@ -28,12 +28,12 @@ export class LoginComponent {
   onSignUp(): void {
     this.userService.registerUser(this.user).subscribe({
       next: (response) => {
-        if (response.status === 200) {
+        if (response.status === 200 || response.status ===201 || response.id != null){
           this.router.navigate(['/login']); 
         }
       },
       error: (error) => {
-        console.error(error);
+        alert(Response.error+"erreur");
       }
     });
   }
