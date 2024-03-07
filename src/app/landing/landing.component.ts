@@ -16,6 +16,7 @@ export class LandingComponent {
 
 
  //Exemples de films
+ /*
   films : Film[] = [
     {
         id: 2,
@@ -46,7 +47,7 @@ export class LandingComponent {
     },
     {
       id: 3,
-      titre: "Le Deuxième Film",
+      titre: "Le Deuxième Film couso",
       description: "Ceci est une description du deuxième film.",
       genre: "Documentaire"
     },
@@ -180,9 +181,9 @@ export class LandingComponent {
   //     genres: ["Thriller", "Horreur"]
   //   }
   // ];
-
+*/
   
- //films: Film[] = [];
+ films: Film[] = [];
 
   constructor(private filmService: FilmService, private panierService: PanierService) {}
 
@@ -201,15 +202,18 @@ export class LandingComponent {
     this.selectedFilm = null;
   }
   
-  ngOnInit() {
-    // this.filmService.getFilms().subscribe(data => {
-    //   this.films = data;
-    //   this.groupFilms();
-    //   this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
-    // });
+   ngOnInit() {
+     this.filmService.getFilms().subscribe(data => {
+       this.films = data;
+       this.groupFilms();
+       this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
+     });
 
-    this.groupFilms();
-      this.extractUniqueGenres();
+     //this.groupFilms();
+     console.log("je suis ici");
+     console.log(this.genresGroupedFilms);
+
+    //this.extractUniqueGenres();
   
    
 
