@@ -26,6 +26,6 @@ export class FilmService {
   }
 
   modifieFilm(film : Film, id :any ){
-    return this.http.put(`this.apiUrl/${id}`,film,this.options);
+    return this.http.put(`${this.apiUrl}/${id}`,film,this.options);
   }
 }
