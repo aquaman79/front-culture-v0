@@ -247,18 +247,18 @@
           <!-- Formulaire pour ajouter un commentaire -->
            <div class="submit-comment mt-4">
             <h4>Ajouter un commentaire</h4>
-            <form>
-              <div class="mb-3">
-                <label for="commentAuthor" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="commentAuthor" placeholder="Votre nom">
-              </div>
-              <div class="mb-3">
-                <label for="commentContent" class="form-label">Commentaire</label>
-                <textarea class="form-control" id="commentContent" rows="3" placeholder="Votre commentaire"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Envoyer</button>
-            </form>
-          </div> 
+              <form (ngSubmit)="onSubmitComment()">
+                <div class="mb-3">
+                  <label for="commentAuthor" class="form-label">Nom</label>
+                  <input type="text" class="form-control" id="commentAuthor" [(ngModel)]="newCommentAuthor" name="commentAuthor" placeholder="Votre nom">
+                </div>
+                <div class="mb-3">
+                  <label for="commentContent" class="form-label">Commentaire</label>
+                  <textarea class="form-control" id="commentContent" rows="3" [(ngModel)]="newCommentContent" name="commentContent" placeholder="Votre commentaire"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+              </form>
+            </div> 
         </div>
       </div>
     </div>
