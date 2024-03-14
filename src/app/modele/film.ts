@@ -29,7 +29,7 @@ export interface Film {
   dateSortie?: Date;
   genre: string;
   duree?: number;
-  urlBandeAnnonce?: string;
+  urlBandeAnnonce: string;
   comments?: Commentaire[]; // Ajout de la propriété comments
   imageBase64 ?: string; 
 }

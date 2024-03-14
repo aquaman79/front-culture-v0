@@ -140,7 +140,7 @@
               <div class="card-body">
                 <section class="d-flex justify-content-between">
                   <div>
-                    <i class="bi bi-play-circle-fill card-icon"></i>
+                    <i class="bi bi-play-circle-fill card-icon" (click)="ouvrirPageImdb(film.titre)"></i>
                     <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
                     <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
                   </div>
@@ -291,6 +291,9 @@
     </div>
     <!-- Section d'informations et de commentaires -->
     <div class="col-lg-8">
+      <div class="video-wrapper mb-4"  >
+        <iframe [src]="getSafeUrl(convertYoutubeUrlToEmbed(selectedFilm.urlBandeAnnonce))" style="width: 100%;height: 300px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
       <div class="info">
         <h2>Commentaires</h2>
         <!-- Liste des commentaires -->
