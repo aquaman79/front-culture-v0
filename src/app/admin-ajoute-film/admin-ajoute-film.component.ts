@@ -51,6 +51,7 @@ export class AdminAjouteFilmComponent {
         next: (response) => {
           console.log('Films ajoutés avec succès', response);
           // Vous pouvez ici gérer la réinitialisation du formulaire ou d'autres actions de succès.
+          alert('Films ajoutés avec succès')
         },
         error: (error) => {
           console.error('Erreur lors de l\'ajout des films', error);

@@ -187,7 +187,7 @@
               <div class="card-body">
                 <section class="d-flex justify-content-between">
                   <div>
-                    <i class="bi bi-play-circle-fill card-icon"></i>
+                    <i class="bi bi-play-circle-fill card-icon" (click)="ouvrirPageImdb(film.titre)"></i>
                     <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i>
                     <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i>
                   </div>

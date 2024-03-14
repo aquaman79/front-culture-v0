@@ -366,6 +366,7 @@ async ouvrirPageImdb(title: string): Promise<void> {
     window.open(url, '_blank');
   } else {
     console.error("L'URL IMDb n'a pas pu être récupérée.");
+    alert('api key invalide, veuillez la reactiver')
   }
 }
 
@@ -380,6 +381,8 @@ async ouvrirPageImdb(title: string): Promise<void> {
       return `https://www.imdb.com/title/${response.data.imdbID}/`;
     } else {
       throw new Error('Film non trouvé');
+      alert('api key invalide, veuillez la reactiver')
+
     }
   } catch (error) {
     console.error(error);
