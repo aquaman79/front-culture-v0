@@ -6,13 +6,14 @@ import { AdminAjouteFilmComponent } from './admin-ajoute-film/admin-ajoute-film.
 import { LoginComponent } from './login/login.component'; // Assurez-vous d'avoir ce composant
 import { AchatComponent } from './achat/achat.component';
 import { AuthGuard } from './services/auth.guard'; // Ajustez le chemin selon votre structure
+import { AdminGuard } from './services/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent, canActivate: [AuthGuard] },
   { path: 'panier', component: PanierComponent, canActivate: [AuthGuard] },
-  { path: 'ajout-film', component: AdminAjouteFilmComponent, canActivate: [AuthGuard] },
+  { path: 'ajout-film', component: AdminAjouteFilmComponent, canActivate: [AuthGuard,AdminGuard] },
   { path: 'achats', component: AchatComponent, canActivate: [AuthGuard] }
   // Autres routes protégées ici...
 ];
