@@ -31,6 +31,8 @@
             <button> Movies </button>
             <button> News & populae </button> -->
             <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
+            <button *ngIf="isAdmin"  style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/ajoute-film"> Ajoute films  </button>
+
           </section>
         </div>
       </section>
