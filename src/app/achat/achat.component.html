@@ -121,7 +121,7 @@
                 <div class="card-body">
                   <section class="d-flex justify-content-between">
                     <div>
-                      <i class="bi bi-play-circle-fill card-icon"></i>
+                      <i class="bi bi-play-circle-fill card-icon" (click)="ouvrirPageImdb(film.titre)"></i>
                       <!-- <i class="bi bi-plus-circle card-icon" (click)="addToPanier(film)"></i> -->
                       <!-- <i class="bi bi-dash-circle card-icon" (click)="removeFromPanier(film)"></i> -->
                     </div>
@@ -135,6 +135,8 @@
                     <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
                     <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
                   </section> -->
+                  <p style="font-weight: bold;" class="netflix-card-text text-white">{{ film.titre }}</p>
+
                   <span class="netflix-card-text text-white">{{ film.genre }}</span>
         </div>
       

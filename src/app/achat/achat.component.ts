@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Commentaire, Film } from '../modele/film';
 import { FilmService } from '../services/film.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import axios from 'axios';
 @Component({
   selector: 'app-achat',
   templateUrl: './achat.component.html',
@@ -121,4 +122,30 @@ export class AchatComponent {
     }
   }
 
+  async ouvrirPageImdb(title: string): Promise<void> {
+    const url = await this.getImdbUrl(title);
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      console.error("L'URL IMDb n'a pas pu être récupérée.");
+    }
+  }
+
+  async  getImdbUrl(title: string): Promise<string> {
+    const apiKey = '565c5590'; // Remplacez par votre clé API OMDb
+    const url = `http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=565c5590`;
+  
+    try {
+      const response = await axios.get(url);
+      if (response.data && response.data.imdbID) {
+        return `https://www.imdb.com/title/${response.data.imdbID}/`;
+      } else {
+        throw new Error('Film non trouvé');
+      }
+    } catch (error) {
+      console.error(error);
+      return '';
+    }
+  }
+  
 }
