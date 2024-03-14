@@ -2,6 +2,7 @@ import { AchatsService } from './../services/achats.service';
 import { Component } from '@angular/core';
 import { Commentaire, Film } from '../modele/film';
 import { FilmService } from '../services/film.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-achat',
   templateUrl: './achat.component.html',
@@ -15,7 +16,7 @@ export class AchatComponent {
   selectedFilm: Film | null = null;
   pseudo : string | null = null;
 
-  constructor(private achatService: AchatsService, private filmService : FilmService) {}
+  constructor(private achatService: AchatsService, private filmService : FilmService,private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.getAchatFromBackend();
@@ -101,5 +102,23 @@ export class AchatComponent {
     return isAdminStr === 'true';
   }
   
+
+  getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  
+  
+   convertYoutubeUrlToEmbed(url: string): string  {
+    // Vérifie si l'URL contient le pattern standard de YouTube
+    if (url.includes("youtube.com/watch?v=")) {
+      // Extrait l'ID de la vidéo depuis l'URL
+      const videoId = url.split("watch?v=")[1].split("&")[0];
+      // Construit et retourne l'URL intégrable
+      return `https://www.youtube.com/embed/${videoId}`;
+    } else {
+      // Retourne null si l'URL ne correspond pas au format attendu
+      return url;
+    }
+  }
 
 }
