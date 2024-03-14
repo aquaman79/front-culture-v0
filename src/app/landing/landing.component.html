@@ -201,6 +201,7 @@
                   <span class="m-2 netflix-card-text text-white">{{ film.type }}</span>
                   <span class="border netflix-card-text p-1 text-white">{{ film.quality }}</span>
                 </section> -->
+                <p style="font-weight: bold;" class="netflix-card-text text-white">{{ film.titre }}</p>
                 <span class="netflix-card-text text-white">{{ film.genre }}</span>
       </div>
     </div>
@@ -258,7 +259,7 @@
     <!-- Conteneur global fixe et centré -->
 <div class="fixed-container detail-card  mx-auto" *ngIf="selectedFilm">
   <div class="row">
-    <!-- Carte de détails du film -->
+    <!-- Carte de détailFs du film -->
     <div class="col-4">
       <div class="card ">
         <img class="card-img-top" src="..." alt="Card image cap">
