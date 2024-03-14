@@ -406,5 +406,8 @@ filterFilms(): void {
   this.extractUniqueGenres(); // Extrayez à nouveau les genres après le filtrage
 }
 
-
+deconnexion(){
+ localStorage.clear();
+ sessionStorage.clear();
+}
 }

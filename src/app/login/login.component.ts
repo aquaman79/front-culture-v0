@@ -49,6 +49,7 @@ export class LoginComponent {
         localStorage.setItem("idUser",response.utilisateur.id)
         localStorage.setItem("pseudo",response.utilisateur.pseudo)
         localStorage.setItem("isAdmin",response.utilisateur.isAdmin)
+        localStorage.setItem("isAuthentified","true");
         console.log(response.jetonJWT)
         if (response.status === 200 || response.status ===201 || response.jetonJWT != null){
           this.router.navigate(['/landing']); 
