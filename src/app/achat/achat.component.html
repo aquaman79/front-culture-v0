@@ -30,6 +30,7 @@
             <button> Movies </button>
             <button> News & populae </button> -->
             <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
+            <button *ngIf="isAdmin"  style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/ajout-film"> Ajoute films  </button>
             </section>
           </div>
         </section>
@@ -219,7 +220,7 @@
       <!-- Carte de détails du film -->
       <div class="col-lg-4">
         <div class="card">
-          <!-- <img class="card-img-top" src="{{ selectedFilm.url_photo }}" alt="Card image cap"> -->
+          <img class="card-img-top" [src]="'data:image/jpeg;base64,' + selectedFilm.imageBase64" alt="Card image cap">
           <div class="card-body text-white">
             <h3>{{ selectedFilm.titre }}</h3>
             <p>{{ selectedFilm.description }}</p>
@@ -228,15 +229,15 @@
       </div>
       <!-- Section d'informations et de commentaires -->
       <div class="col-lg-8">
+        <div class="video-wrapper mb-4"  >
+          <iframe [src]="getSafeUrl(convertYoutubeUrlToEmbed(selectedFilm.urlBandeAnnonce))" style="width: 100%;height: 300px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <div class="info">
           <h2>Commentaires</h2>
           <!-- Liste des commentaires -->
           <div class="comments-list">
             <div class="comment" *ngFor="let comment of selectedFilm.comments">
               <div class="d-flex">
-                <div class="comment-avatar">
-                  <img src="path_to_avatar_image" alt="avatar" class="rounded-circle" style="width: 40px; height: 40px;">
-                </div>
                 <div class="flex-grow-1 ms-3">
                   <h5 class="mt-0">{{ comment.auteur }}</h5>
                   <p>{{ comment.contenu }}</p>
@@ -250,7 +251,7 @@
               <form (ngSubmit)="onSubmitComment()">
                 <div class="mb-3">
                   <label for="commentAuthor" class="form-label">Nom</label>
-                  <input type="text" class="form-control" id="commentAuthor" [(ngModel)]="newCommentAuthor" name="commentAuthor" placeholder="Votre nom">
+                  <input type="text" class="form-control" id="commentAuthor" [value]="pseudo" name="commentAuthor" placeholder="Votre nom" disabled>
                 </div>
                 <div class="mb-3">
                   <label for="commentContent" class="form-label">Commentaire</label>

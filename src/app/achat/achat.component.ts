@@ -13,11 +13,14 @@ export class AchatComponent {
   id =  localStorage.getItem("idUser");
 
   selectedFilm: Film | null = null;
+  pseudo : string | null = null;
 
   constructor(private achatService: AchatsService, private filmService : FilmService) {}
 
   ngOnInit() {
     this.getAchatFromBackend();
+    this.pseudo = localStorage.getItem("pseudo") || 'Utilisateur inconnu'; // Assurez-vous d'avoir une valeur par défaut
+
   }
   
   getAchatFromBackend() {

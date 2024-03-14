@@ -31,10 +31,11 @@
             <div class="netflix-nav">
               <section >
                 <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/landing" >  Home </button>
-                <!-- <button> Tvshows </button>
-                <button> Movies </button>
-                <button> News & populae </button> -->
-                <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
+            <!-- <button> Tvshows </button>
+            <button> Movies </button>
+            <button> News & populae </button> -->
+            <button style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/achats"> Mes achats  </button>
+            <button *ngIf="isAdmin"  style="color: #9e0c39; font-weight: bold;font-size: larger;" routerLink="/ajout-film"> Ajoute films  </button>
               </section>
             </div>
           </section>
