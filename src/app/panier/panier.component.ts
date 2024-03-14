@@ -76,6 +76,10 @@ export class PanierComponent implements OnInit {
     }
   }
   
-
+  get isAdmin(): boolean {
+    const isAdminStr = localStorage.getItem("isAdmin");
+    return isAdminStr === 'true';
+  }
+  
 
 }

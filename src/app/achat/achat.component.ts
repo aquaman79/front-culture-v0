@@ -96,6 +96,10 @@ export class AchatComponent {
     }
   }
   
-
+  get isAdmin(): boolean {
+    const isAdminStr = localStorage.getItem("isAdmin");
+    return isAdminStr === 'true';
+  }
+  
 
 }
