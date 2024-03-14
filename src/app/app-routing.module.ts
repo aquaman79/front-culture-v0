@@ -5,15 +5,16 @@ import { LandingComponent } from './landing/landing.component';
 import { AdminAjouteFilmComponent } from './admin-ajoute-film/admin-ajoute-film.component';
 import { LoginComponent } from './login/login.component'; // Assurez-vous d'avoir ce composant
 import { AchatComponent } from './achat/achat.component';
+import { AuthGuard } from './services/auth.guard'; // Ajustez le chemin selon votre structure
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Rediriger la route par défaut vers 'login'
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'landing', component: LandingComponent },
-  { path: 'panier', component: PanierComponent },
-  { path: 'ajout-film', component: AdminAjouteFilmComponent },
-  { path: 'achats', component:AchatComponent}
-  // Ajoutez d'autres routes ici
+  { path: 'landing', component: LandingComponent, canActivate: [AuthGuard] },
+  { path: 'panier', component: PanierComponent, canActivate: [AuthGuard] },
+  { path: 'ajout-film', component: AdminAjouteFilmComponent, canActivate: [AuthGuard] },
+  { path: 'achats', component: AchatComponent, canActivate: [AuthGuard] }
+  // Autres routes protégées ici...
 ];
 
 @NgModule({
