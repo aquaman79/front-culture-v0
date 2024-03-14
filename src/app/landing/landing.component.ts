@@ -15,6 +15,8 @@ export class LandingComponent {
   panier: Film[] = []; // Panier pour stocker les films ajoutés
   groupedFilms: Film[][]  = [];
   selectedFilm: Film | null = null;
+  searchTerm: string = '';
+
 
 
  //Exemples de films
@@ -226,17 +228,21 @@ export class LandingComponent {
   idUser = localStorage.getItem("idUser");
 /*
   ngOnInit() {
-    this.groupFilms();
-    this.extractUniqueGenres();
+  // this.films = data;
+      this.originalFilms = [...this.films]; // Sauvegarde une copie originale des films
+      this.groupFilms();
+      this.extractUniqueGenres();
   }
-*/
+  */
+
   
 
    ngOnInit() {
     this.filmService.getFilms().subscribe(data => {
-       this.films = data;
-       this.groupFilms();
-       this.extractUniqueGenres(); // Nouvelle méthode pour extraire les genres
+      this.films = data;
+      this.originalFilms = [...data]; // Sauvegarde une copie originale des films
+      this.groupFilms();
+      this.extractUniqueGenres();// Nouvelle méthode pour extraire les genres
        this.panierService.getPanier(this.idUser).subscribe({
         next: (panier: Film[]) => {
           this.panier = panier;
@@ -246,6 +252,7 @@ export class LandingComponent {
       });
   
      });
+    
      
   
    //this.groupFilms();
@@ -386,6 +393,18 @@ get isAdmin(): boolean {
   return isAdminStr === 'true';
 }
 
+
+originalFilms: Film[] = []; // Conserver une copie des films initiaux
+
+filterFilms(): void {
+  if (!this.searchTerm) {
+    this.films = [...this.originalFilms]; // Restaure les films originaux s'il n'y a pas de terme de recherche
+  } else {
+    this.films = this.originalFilms.filter(film => film.titre.toLowerCase().includes(this.searchTerm.toLowerCase()));
+  }
+  this.groupFilms(); // Regroupe à nouveau les films filtrés pour l'affichage
+  this.extractUniqueGenres(); // Extrayez à nouveau les genres après le filtrage
+}
 
 
 }

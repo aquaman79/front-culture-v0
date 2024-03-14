@@ -39,8 +39,9 @@
       <section class=" d-flex align-items-center flex-wrap mx-5">
         <div class="d-flex flex-wrap ">
           <form class=" d-flex flex-wrap position-relative">
-            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+            [(ngModel)]="searchTerm" (ngModelChange)="filterFilms()" name="search">     
+                 <button class="btn  position-absolute" style="right: 0; top: 0; background-color: #9e0c39;" type="submit">Search</button>
           </form>
         </div>
       
